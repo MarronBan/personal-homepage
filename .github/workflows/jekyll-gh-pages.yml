@@ -1,31 +1,33 @@
-name: deploy
+name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches: [ "main" ] # 触发分支，根据你的主分支名称调整（如master）
+
+permissions:
+  contents: write # 允许向gh-pages分支写入内容
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Clear npm cache
-        run: npm cache clean --force
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - uses: actions/checkout@v3
-
-      - name: Use Node.js v18
-        uses: actions/setup-node@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20 # 根据项目需求选择Node版本
+          cache: 'npm'
 
-      - name: Install and Build
-        run: |
-          npm install
-          npm run build
+      - name: Install dependencies
+        run: npm install
 
-      - name: Deploy to github pages
+      - name: Build project
+        run: npm run build
+        
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          commit_message: deploy to github pages
-          publish_dir: ./dist
+          publish_dir: ./dist # Vite默认构建目录，若自定义了需调整
