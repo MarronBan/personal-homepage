@@ -1,0 +1,26 @@
+.about-wrapper {
+  text-align: center;
+  .about-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .glass-card {
+    position: relative;
+    min-width: 300px;
+    max-width: 600px;
+    height: 200px;
+    margin: 0 auto;
+    overflow: hidden;
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 5px );
+    -webkit-backdrop-filter: blur( 5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    
+    ::highlight(show-result){
+      background-color: #B3D8FF;;
+    }
+  }
+}

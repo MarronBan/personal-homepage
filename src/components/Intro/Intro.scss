@@ -1,0 +1,40 @@
+.intro-wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap:70px 0;
+  width: 100%;
+  min-height: 550px;
+  /* background-color: aliceblue; */
+  .avatar-wrapper{
+    margin-top: 100px;
+    .avatar{
+      width:100px;
+      height: 100px;
+      background-color: white;
+      padding:4px;
+      border-radius: 50%;
+      overflow: hidden;
+      box-sizing: border-box;
+      cursor: grab;
+      img{
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        pointer-events: none;
+      }
+    }
+  }
+  .intro-text{
+    color:#F2F6FC;
+    text-shadow: #b4b3b0 1px 0 10px;
+    font-size: 24px;
+    text-align: center;
+    user-select: none;
+    
+  }
+  .button-list{
+    display: flex;
+    gap:30px;
+  }
+}
