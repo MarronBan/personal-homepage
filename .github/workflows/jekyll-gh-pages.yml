@@ -25,7 +25,11 @@ jobs:
 
       - name: Build project
         run: npm run build
-        
+
+      - name: Add .nojekyll file
+        run: |
+          touch ./dist/.nojekyll # 禁用Jekyll处理（关键步骤）
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
